@@ -1,0 +1,14 @@
+[웹 애플리케이션 실행을 위한 Tomcat Server 소개]
+
+
+1. 웹 애플리케이션 실행을 위한 Web Application Server
+- 웹 애플리케이션과 서버 환경을 만들어 동작시키는 SW
+- Apache Tomcat (9 버전 사용예정)
+- Jboss
+- Jetty
+- Nettys
+
+자바에서 만들어진 웹 어플리케이션 결과물은 .war 파일 형태로 배포
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd

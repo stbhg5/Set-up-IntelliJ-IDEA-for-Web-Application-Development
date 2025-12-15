@@ -1,0 +1,19 @@
+@ Section 1. Web Application을 개발하기 위한 환경 준비
+
+
+[강의소개 및 목차]
+
+
+1. 강의소개
+웹 애플리케이션 개발에 필요한 프로그래밍을 위한 SDK, 빌드도구, 웹 서버를 설정하고 통합 개발도구인 IntelliJ IDEA 도구 사용 방법
+
+
+2. 목차
+∙ Section 1. Web Application을 개발하기 위한 환경 준비
+∙ Section 2. IntelliJ IDEA의 시작
+∙ Section 3. 첫 번째 JSP와 Servlet 예제
+∙ Section 4. 운영 환경 구축
+∙ Section 5. Spring Boot를 이용한 웹 애플리케이션 개발하기
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd
