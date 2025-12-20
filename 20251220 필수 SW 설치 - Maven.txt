@@ -1,0 +1,234 @@
+[필수 SW 설치 ② - Maven]
+
+
+1. Windows
+다운로드 링크 : https://maven.apache.org/download.cgi
+
+.tar.gz 는 리눅스나 MacOS 용이고, .zip 가 윈도우 용이다.
+
+1) 다운로드
+apache-maven-3.9.12-bin.zip 를 다운로드한 후, C:\Program Files 경로에 압축을 해제한다.
+
+2) 환경변수 등록
+시스템 > 정보 > 고급 시스템 설정 > 환경 변수
+시스템 변수를 추가한다.
+
+변수 이름 : MAVEN_HOME
+변수 값 : C:\Program Files\apache-maven-3.9.12
+
+변수 이름 : Path
+변수 값 추가 : %MAVEN_HOME%\bin
+
+- 명령 프롬프트
+C:\Users\admin>mvn --help
+
+usage: mvn [options] [<goal(s)>] [<phase(s)>]
+
+Options:
+ -am,--also-make                         If project list is specified,
+                                         also build projects required by
+                                         the list
+ -amd,--also-make-dependents             If project list is specified,
+                                         also build projects that depend
+                                         on projects on the list
+ -B,--batch-mode                         Run in non-interactive (batch)
+                                         mode (disables output color)
+ -b,--builder <arg>                      The id of the build strategy to
+                                         use
+ -C,--strict-checksums                   Fail the build if checksums don't
+                                         match
+ -c,--lax-checksums                      Warn if checksums don't match
+    --color <arg>                        Defines the color mode of the
+                                         output. Supported are 'auto',
+                                         'always', 'never'.
+ -cpu,--check-plugin-updates             Ineffective, only kept for
+                                         backward compatibility
+ -D,--define <arg>                       Define a user property
+ -e,--errors                             Produce execution error messages
+ -emp,--encrypt-master-password <arg>    Encrypt master security password
+ -ep,--encrypt-password <arg>            Encrypt server password
+ -f,--file <arg>                         Force the use of an alternate POM
+                                         file (or directory with pom.xml)
+ -fae,--fail-at-end                      Only fail the build afterwards;
+                                         allow all non-impacted builds to
+                                         continue
+ -ff,--fail-fast                         Stop at first failure in
+                                         reactorized builds
+ -fn,--fail-never                        NEVER fail the build, regardless
+                                         of project result
+ -gs,--global-settings <arg>             Alternate path for the global
+                                         settings file
+ -gt,--global-toolchains <arg>           Alternate path for the global
+                                         toolchains file
+ -h,--help                               Display help information
+ -itr,--ignore-transitive-repositories   If set, Maven will ignore remote
+                                         repositories introduced by
+                                         transitive dependencies.
+ -l,--log-file <arg>                     Log file where all build output
+                                         will go (disables output color)
+ -llr,--legacy-local-repository          UNSUPPORTED: Use of this option
+                                         will make Maven invocation fail.
+ -N,--non-recursive                      Do not recurse into sub-projects
+ -npr,--no-plugin-registry               Ineffective, only kept for
+                                         backward compatibility
+ -npu,--no-plugin-updates                Ineffective, only kept for
+                                         backward compatibility
+ -nsu,--no-snapshot-updates              Suppress SNAPSHOT updates
+ -ntp,--no-transfer-progress             Do not display transfer progress
+                                         when downloading or uploading
+ -o,--offline                            Work offline
+ -P,--activate-profiles <arg>            Comma-delimited list of profiles
+                                         to activate
+ -pl,--projects <arg>                    Comma-delimited list of specified
+                                         reactor projects to build instead
+                                         of all projects. A project can be
+                                         specified by [groupId]:artifactId
+                                         or by its relative path
+ -q,--quiet                              Quiet output - only show errors
+    --raw-streams                        Ignored (Maven4 option)
+ -rf,--resume-from <arg>                 Resume reactor from specified
+                                         project
+ -s,--settings <arg>                     Alternate path for the user
+                                         settings file
+ -t,--toolchains <arg>                   Alternate path for the user
+                                         toolchains file
+ -T,--threads <arg>                      Thread count, for instance 4
+                                         (int) or 2C/2.5C (int/float)
+                                         where C is core multiplied
+ -U,--update-snapshots                   Forces a check for missing
+                                         releases and updated snapshots on
+                                         remote repositories
+ -up,--update-plugins                    Ineffective, only kept for
+                                         backward compatibility
+ -v,--version                            Display version information
+ -V,--show-version                       Display version information
+                                         WITHOUT stopping build
+ -X,--debug                              Produce execution debug output
+
+
+C:\Users\admin>mvn -version
+Apache Maven 3.9.12 (848fbb4bf2d427b72bdb2471c22fced7ebd9a7a1)
+Maven home: C:\Program Files\apache-maven-3.9.12
+Java version: 17.0.17, vendor: Eclipse Adoptium, runtime: C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot
+Default locale: ko_KR, platform encoding: MS949
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+
+
+- mvn clean : 빌드내용 초기화
+- mvn compile : 새롭게 빌드
+- mvn package : 패키징
+
+메이븐 사용시, 작업하고자 하는 디렉토리에 메이븐 설정 파일인 pom.xml 파일이 존재해야 한다.
+
+
+2. MacOS
+터미널에서 Homebrew 를 통해 설치한다.
+
+1) Maven 설치 및 설치 확인
+- 터미널
+jint@jintui-MacBookAir ~ % brew update
+==> Updating Homebrew...
+==> Homebrew collects anonymous analytics.
+Read the analytics documentation (and how to opt-out) here:
+  https://docs.brew.sh/Analytics
+No analytics have been recorded yet (nor will be during this `brew` run).
+
+==> Homebrew is run entirely by unpaid volunteers. Please consider donating:
+  https://github.com/Homebrew/brew#donations
+
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+calm-cli: CLI allows you to interact with the Common Architecture Language Model (CALM)
+depot: Build your Docker images in the cloud
+neo4j-mcp: Neo4j official Model Context Protocol server for AI tools
+papis: Powerful command-line document and bibliography manager
+jint@jintui-MacBookAir ~ % brew install maven
+==> Fetching downloads for: maven
+✔︎ Bottle Manifest maven (3.9.12)                                                                                                                  [Downloaded    9.9KB/  9.9KB]
+✔︎ Bottle Manifest openjdk (25.0.1)                                                                                                                [Downloaded   39.8KB/ 39.8KB]
+✔︎ Bottle maven (3.9.12)                                                                                                                           [Downloaded    9.3MB/  9.3MB]
+✔︎ Bottle openjdk (25.0.1)                                                                                                                         [Downloaded  217.8MB/217.8MB]
+==> Installing maven dependency: openjdk
+==> Pouring openjdk--25.0.1.arm64_tahoe.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/openjdk/25.0.1: 557 files, 389.5MB
+==> Pouring maven--3.9.12.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/maven/3.9.12: 100 files, 10.9MB
+==> Running `brew cleanup maven`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+jint@jintui-MacBookAir ~ % mvn -version
+Apache Maven 3.9.12 (848fbb4bf2d427b72bdb2471c22fced7ebd9a7a1)
+Maven home: /opt/homebrew/Cellar/maven/3.9.12/libexec
+Java version: 17.0.17, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk@17/17.0.17/libexec/openjdk.jdk/Contents/Home
+Default locale: ko_KR, platform encoding: UTF-8
+OS name: "mac os x", version: "26.1", arch: "aarch64", family: "mac"
+
+2) 환경변수 설정
+~/.zshrc 파일에 환경 변수 추가 후, 변경사항 적용
+
+- 터미널
+jint@jintui-MacBookAir ~ % ls -al
+total 80
+drwxr-x---+ 20 jint  staff    640 12월 20 16:28 .
+drwxr-xr-x   5 root  admin    160 11월  9 00:37 ..
+-r--------   1 jint  staff      8 11월  5 20:47 .CFUserTextEncoding
+-rw-r--r--@  1 jint  staff  18436 12월 20 16:26 .DS_Store
+drwx------+  2 jint  staff     64 12월 19 00:19 .Trash
+-rw-------   1 jint  staff    960 12월 19 00:03 .viminfo
+drwxr-xr-x@  5 jint  staff    160 11월  8 00:06 .vscode
+-rw-r--r--   1 jint  staff     43 12월 18 23:33 .zprofile
+-rw-------   1 jint  staff   1235 12월 19 00:12 .zsh_history
+drwx------   6 jint  staff    192 12월 20 16:28 .zsh_sessions
+-rw-r--r--   1 jint  staff     95 12월 19 00:03 .zshrc
+drwx------@  4 jint  staff    128 11월  9 00:48 Desktop
+drwxr-xr-x   5 jint  staff    160 12월 16 22:51 dev
+drwx------@  4 jint  staff    128 12월 16 22:49 Documents
+drwx------+  9 jint  staff    288 12월 20 16:26 Downloads
+drwx------@ 88 jint  staff   2816 12월 16 22:39 Library
+drwx------   7 jint  staff    224 12월 16 22:46 Movies
+drwx------+  6 jint  staff    192 11월  7 23:27 Music
+drwx------+  6 jint  staff    192 12월 16 22:46 Pictures
+drwxr-xr-x+  5 jint  staff    160 12월 16 22:46 Public
+jint@jintui-MacBookAir ~ % cat .zshrc
+# OpenJDK 17
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH=$JAVA_HOME/bin:$PATH
+jint@jintui-MacBookAir ~ % vi .zshrc
+
+- 터미널 Vim
+# OpenJDK 17
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Maven
+export MAVEN_HOME=/opt/homebrew/opt/maven/libexec
+export PATH=$MAVEN_HOME/bin:$PATH
+~                                                                                                                                                                              
+~                                                                                                                                                                              
+~                                                                                                                                                                              
+~                                                                                                                                                                              
+:wq 
+
+- 터미널
+jint@jintui-MacBookAir ~ % cat .zshrc
+# OpenJDK 17
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Maven
+export MAVEN_HOME=/opt/homebrew/opt/maven/libexec
+export PATH=$MAVEN_HOME/bin:$PATH
+jint@jintui-MacBookAir ~ % source ~/.zshrc
+jint@jintui-MacBookAir ~ % echo $MAVEN_HOME
+/opt/homebrew/opt/maven/libexec
+jint@jintui-MacBookAir ~ % mvn -version
+Apache Maven 3.9.12 (848fbb4bf2d427b72bdb2471c22fced7ebd9a7a1)
+Maven home: /opt/homebrew/opt/maven/libexec
+Java version: 17.0.17, vendor: Homebrew, runtime: /opt/homebrew/Cellar/openjdk@17/17.0.17/libexec/openjdk.jdk/Contents/Home
+Default locale: ko_KR, platform encoding: UTF-8
+OS name: "mac os x", version: "26.1", arch: "aarch64", family: "mac"
+
+메이븐 버전 확인을 통해 설치를 완료했다.
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd
