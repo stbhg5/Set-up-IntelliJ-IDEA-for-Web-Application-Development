@@ -1,0 +1,165 @@
+[필수 SW 설치 ③ - Tomcat]
+
+
+1. Windows
+다운로드 링크 : https://tomcat.apache.org/download-10.cgi
+
+1) 다운로드
+64-bit Windows zip 클릭하여 다운로드한 후, C:\Program Files 경로에 압축을 해제한다.
+
+apache-tomcat-10.1.50 폴더의 주의 깊게 봐야하는 3가지 폴더를 소개한다.
+
+· bin : 톰캣 서버를 시작하고 종료하는 기동 관련 명령어들이 존재
+· conf : 환경설정 파일 (퍼포먼스를 위한 튜닝, 각종 설정 변경 등)
+· webapps : 만들었던 웹 애플리케이션 파일을 위치시킨다. 실제 작업되는 서비스 및 어플리케이션이 존재한다.
+
+2) 서버 실행
+명령 프롬프트에서 톰캣 서버를 실행한다.
+윈도우 환경이니 .bat 파일을 사용한다. 리눅스나 MacOS 환경에서는 .sh 파일을 사용한다.
+
+- 명령 프롬프트
+C:\Users\admin>cd C:\Program Files\apache-tomcat-10.1.50\bin
+
+C:\Program Files\apache-tomcat-10.1.50\bin>dir
+ C 드라이브의 볼륨: win11
+ 볼륨 일련 번호: CA42-51D9
+
+ C:\Program Files\apache-tomcat-10.1.50\bin 디렉터리
+
+2025-12-22  오후 10:17    <DIR>          .
+2025-12-22  오후 10:17    <DIR>          ..
+2025-12-02  오후 10:57            36,411 bootstrap.jar
+2025-12-02  오후 10:57             1,703 catalina-tasks.xml
+2025-12-02  오후 10:57            15,684 catalina.bat
+2025-12-02  오후 10:57            23,929 catalina.sh
+2025-12-02  오후 10:57             2,123 ciphers.bat
+2025-12-02  오후 10:57             1,997 ciphers.sh
+2025-12-02  오후 10:57            25,943 commons-daemon.jar
+2025-12-02  오후 10:57             2,040 configtest.bat
+2025-12-02  오후 10:57             1,922 configtest.sh
+2025-12-02  오후 10:57             8,319 daemon.sh
+2025-12-02  오후 10:57             2,091 digest.bat
+2025-12-02  오후 10:57             1,965 digest.sh
+2025-12-02  오후 10:57             3,606 makebase.bat
+2025-12-02  오후 10:57             3,382 makebase.sh
+2025-12-02  오후 10:57             2,096 migrate.bat
+2025-12-02  오후 10:57             1,970 migrate.sh
+2025-12-02  오후 10:57             8,800 service.bat
+2025-12-02  오후 10:57             3,382 setclasspath.bat
+2025-12-02  오후 10:57             3,941 setclasspath.sh
+2025-12-02  오후 10:57             2,020 shutdown.bat
+2025-12-02  오후 10:57             1,902 shutdown.sh
+2025-12-02  오후 10:57             2,022 startup.bat
+2025-12-02  오후 10:57             1,904 startup.sh
+2025-12-02  오후 10:57         5,063,680 tcnative-2.dll
+2025-12-02  오후 10:57            52,448 tomcat-juli.jar
+2025-12-02  오후 10:57           144,280 tomcat10.exe
+2025-12-02  오후 10:57           180,120 tomcat10w.exe
+2025-12-02  오후 10:57             3,623 tool-wrapper.bat
+2025-12-02  오후 10:57             4,600 tool-wrapper.sh
+2025-12-02  오후 10:57             2,026 version.bat
+2025-12-02  오후 10:57             1,908 version.sh
+              31개 파일           5,611,837 바이트
+               2개 디렉터리  982,612,148,224 바이트 남음
+
+C:\Program Files\apache-tomcat-10.1.50\bin>startup.bat
+Using CATALINA_BASE:   "C:\Program Files\apache-tomcat-10.1.50"
+Using CATALINA_HOME:   "C:\Program Files\apache-tomcat-10.1.50"
+Using CATALINA_TMPDIR: "C:\Program Files\apache-tomcat-10.1.50\temp"
+Using JRE_HOME:        "C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot\"
+Using CLASSPATH:       "C:\Program Files\apache-tomcat-10.1.50\bin\bootstrap.jar;C:\Program Files\apache-tomcat-10.1.50\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+
+서버를 실행하면 새로운 Tomcat 터미널 창이 뜬다.
+주의사항이 있다면, 새롭게 뜬 Tomcat 터미널 창에 마우스로 드래그하여 선택하는 경우 서버가 정상 작동되지 않고 홀딩되는 경우가 있기 때문에, 선택하지 않도록 주의한다.
+
+브라우저에서 http://localhost:8080/ 로 접속하면, "java.lang.IllegalStateException: 출력 폴더가 없음" 에러가 발생한다.
+
+참고링크 : https://dorothy-yang.tistory.com/95
+
+C:\Program Files\apache-tomcat-10.1.50 디렉터리를 우클릭하여 "속성" 클릭 후, 보안 탭의 "편집" 버튼을 클릭한다. ALL APPLICATION PACKAGES의 사용 권한을 모든 권한에 체크한 뒤, "적용" 버튼 누르고 "확인" 버튼을 누른다.
+이후 톰캣 서버를 재시작 한다.
+
+이후 "org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.index_jsp" 에러가 발생.
+
+서버 종료할 때는, 새로 열린 Tomcat 터미널 창을 끄거나 기존 명령 프롬프트에서 shutdown.bat 명령어를 입력한다.
+
+- 명령 프롬프트
+C:\Program Files\apache-tomcat-10.1.50\bin>shutdown.bat
+Using CATALINA_BASE:   "C:\Program Files\apache-tomcat-10.1.50"
+Using CATALINA_HOME:   "C:\Program Files\apache-tomcat-10.1.50"
+Using CATALINA_TMPDIR: "C:\Program Files\apache-tomcat-10.1.50\temp"
+Using JRE_HOME:        "C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot\"
+Using CLASSPATH:       "C:\Program Files\apache-tomcat-10.1.50\bin\bootstrap.jar;C:\Program Files\apache-tomcat-10.1.50\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+
+따로 Tomcat 서버를 설치하지 않고 Spring Boot 내장 Tomcat을 사용해도 된다.
+
+
+2. MacOS
+터미널에서 Homebrew 를 통해 설치한다.
+
+1) Tomcat 설치 및 설치 확인
+- 터미널
+brew update
+
+# Tomcat 10 설치
+brew install tomcat@10
+
+# 버전 확인
+brew list tomcat@10
+
+# 설치 정보
+brew info tomcat@10
+
+# 시작
+brew services start tomcat@10
+
+# 중지
+brew services stop tomcat@10
+
+# 재시작
+brew services restart tomcat@10
+
+# 상태 확인
+brew services list | grep tomcat
+
+브라우저에서 http://localhost:8080/ 로 접속하여 확인
+
+2) 환경변수 설정
+- 터미널
+vim ~/.zshrc
+
+- 터미널 Vim
+# Tomcat 10
+export CATALINA_HOME=/opt/homebrew/opt/tomcat@10/libexec
+export PATH=$CATALINA_HOME/bin:$PATH
+
+3) 적용
+- 터미널
+source ~/.zshrc
+
+# 확인
+echo $CATALINA_HOME
+
+4) Homebrew 서비스 대신 직접 제어
+- 터미널
+# 시작
+$CATALINA_HOME/bin/startup.sh
+
+# 또는
+/opt/homebrew/opt/tomcat@10/libexec/bin/startup.sh
+
+# 중지
+$CATALINA_HOME/bin/shutdown.sh
+
+# 또는
+/opt/homebrew/opt/tomcat@10/libexec/bin/shutdown.sh
+
+# 상태 확인
+ps aux | grep tomcat
+
+따로 Tomcat 서버를 설치하지 않고 Spring Boot 내장 Tomcat을 사용해도 된다.
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd
