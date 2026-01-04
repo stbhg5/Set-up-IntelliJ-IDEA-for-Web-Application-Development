@@ -1,0 +1,36 @@
+[IntelliJ IDEA에서 자바 프로젝트 생성하기]
+
+
+인텔리제이는 프로젝트를 Window 베이스로 관리한다.
+
+1. Java 프로젝트
+1) 프로젝트 생성
+새 프로젝트 > Java
+이름 : first-project
+위치 : ~\IdeaProjects
+시스템 빌드 : IntelliJ
+JDK : Eclipse Temurin 17.0.17
+V 샘플 코드 추가
+고급설정)
+모듈 이름 : first-project
+콘텐츠 루트 : ~\IdeaProjects\first-project
+모듈 파일 위치 : ~\IdeaProjects\first-project
+
+2) 프로젝트 생성 후 새로운 프로젝트 만들기 메뉴
+메인 메뉴 > 파일 > 새로 만들기 > 기존 소스에서 프로젝트... : 프로젝트 기반의 소스코드, 프로젝트 관리 도구로 만들어진 프로젝트 설정파일((메이븐, pom.xml) 이나 (그레이들, build.xml))을 선택하여 인텔리제이 프로젝트 형태로 가져올 수 있음
+메인 메뉴 > 파일 > 새로 만들기 > 버전 관리에 있는 프로젝트... : 형상관리 시스템으로부터 프로젝트 가져오기 (레포지토리 주소를 통해 가져올 수 있음)
+(메인 메뉴 > VCS(Version Control System) > 버전 관리에서 가져오기...)
+* VCS(Version Control System) : CVS, Subversion, Git
+
+3) 프로젝트 구조
+# .idea : 히든 파일로, 인텔리제이가 스스로 관리하는 내용들
+# src : 소스코드를 관리하는 공간
+# .gitignore : 히든 파일로, 형상관리 시스템 Git과 연동함에 있어서 Git 레포지토리에 올리고 싶지 않은 내용들 명시
+* 보이진 않지만, .iml 파일은 인텔리제이에서 사용하는 설정 파일
+# 외부 라이브러리 : 현재 사용하는 JDK에 포함된 패키지 목록을 디렉터리 처럼 관리, 이외의 다른 라이브러리들도 보여줌
+
+2. Maven 프로젝트
+추후 생성 후 진행
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd

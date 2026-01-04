@@ -1,0 +1,27 @@
+[필수 SW 설치 ④ - IntelliJ IDEA]
+
+
+1. Windows
+다운로드 링크 : https://www.jetbrains.com/ko-kr/idea/download/?section=windows
+
+홈페이지에서 IntelliJ IDEA (Windows) 다운로드
+다운로드한 설치 파일 idea-2025.3.1.exe 실행 > 설치폴더 : 기본값 > 데스크톱 바로가기 생성 체크 > 시작메뉴 폴더 : JetBrains
+
+설치 완료 후 IntelliJ 실행
+언어 및 지역 : Korean 한국어, 아시아(중국 대륙 제외)
+약관 동의
+데이터 공유 - 익명 통계 공유
+
+IntelliJ 설치 후 간단하게 보이지만, 필요한 설정, 플러그인 관리, 프로젝트 생성 진행 가능
+
+
+2. MacOS
+다운로드 링크 : https://www.jetbrains.com/ko-kr/idea/download/?section=mac
+
+홈페이지에서 IntelliJ IDEA (macOS) 다운로드
+다운로드한 .dmg 파일 실행 > IntelliJ IDEA 아이콘 Applications 폴더로 드래그
+
+IntelliJ 설치 후 간단하게 보이지만, 필요한 설정, 플러그인 관리, 프로젝트 생성 진행 가능
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd

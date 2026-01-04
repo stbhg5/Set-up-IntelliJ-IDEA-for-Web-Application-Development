@@ -1,0 +1,43 @@
+@ Section 2. IntelliJ IDEA의 시작
+
+
+[IntelliJ IDEA 살펴보기]
+
+
+1. 이클립스와 인텔리제이 비교
+Eclipse IDE / IntelliJ IDEA
+Workspace   / Project : 1개의 윈도우에서 1개의 프로젝트만 사용 가능
+Project     / Module  : 서브 프로젝트의 개념
+Facet       / Facet
+Library     / Library
+JRE         / SDK
+Classpath   / Path variable
+            - No workspace
+            - No perspectives
+            - Tool windows
+            - Multiple windows
+
+둘 다 통계적 점수는 유사하다.
+
+
+2. IntelliJ IDEA 환경 설정
+1) Settings
+인텔리제이 전반적으로 영향을 미치는 환경설정
+
+2) Project Structure
+작업하는 프로젝트 내에서만 설정되는 항목
+
+3) Maven 도구 설정 (Settings 에 해당)
+최신 버전으로 쓰려면, 다운로드 받은 것 사용
+간단하게 쓰려면, 내장 메이븐 사용
+
+4) Smart Tomcat Plugin 설치
+Marketplace에서 Smart Tomcat 설치
+다운로드 받은 후 포트 등 설정 가능
+
+5) Maven Web Project 생성
+Maven Archetype : 사용하고자 하는 프로젝트 종류를 여러가지 템플릿으로 제공
+-> org.apache.maven.archetypes:maven-archetype-webapp : 웹 서비스 및 웹 어플리케이션을 개발하기 위해 필요한 기본적인 템플릿을 가진 형태로 프로젝트 시작 가능
+
+
+참고링크 : https://www.inflearn.com/course/%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%EC%9C%84%ED%95%9C-intellij-idea-%EC%84%A4%EC%A0%95-2nd
